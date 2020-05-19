@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Aframe test1</title>
+    <meta name="viewport" content="width=device-width">
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!-- <script src="scripts/main.js" defer></script> -->
+  </head>
+
+  <body>
+
+    <a-scene>
+
+      <a-assets>
+        <img id="lucht" src="images/lucht2.jpg"/>
+        <a-asset-item id="vogel" src="files/scene.gltf"></a-asset-item>
+        <a-asset-item id="object" src="files/zand.obj"></a-asset-item>
+        <a-asset-item id="material" src="files/zand.mtl"></a-asset-item>
+      </a-assets>
+
+      <a-sky src="#lucht"></a-sky>
+
+      <a-obj-model
+        src="#object"
+        mtl="#material"
+        position="0 -40 10"
+        rotation="0 45 0"
+        scale="50 25 50"
+        >
+      </a-obj-model>
+
+      <a-entity
+        gltf-model="#vogel"
+        position="0 1 -4"
+        rotation="0 45 0"
+        animation__vogel1=
+          "dur:3000;
+          dir: alternate;
+          easing:easeInOutQuad;
+          from:0 0 -4;
+          to:0 1 -4;
+          loop:-1;
+          property:position;"
+
+        animation__vogel2=
+          "dur:2000;
+          dir: alternate;
+          easing:easeInOutSine;
+          from: -10 45 -5;
+          to: 10 45 5;
+          loop:-1;
+          property:rotation;"
+
+      ></a-entity>
+
+
+      <a-camera>
+        <a-entity id="mouseCursor"
+          cursor="fuse: true; fuseTimeout: 1">
+        </a-entity>
+        <a-ring id="cursorRing"
+          position="0 0 -1"
+          radius-inner= "0.01"
+          radius-outer= "0.02"
+          material="color: white; shader: flat">
+        </a-ring>
+      </a-camera>
+
+      <!-- <a-curvedimage src="#my-image" height="15.0" radius="5.7" theta-length="361"
+                     rotation="0 150 0"
+                     scale="0.8 0.8 0.8"
+                     position="0 0 0"></a-curvedimage> -->
+
+
+
+
+
+
+      <!-- <a-plane id="ground"
+        position="0 0 -4"
+        rotation="-90 0 0"
+        width="100"
+        height="100"
+        color="#7BC8A4"
+        material="src: #grass; repeat: 10 10"
+        shadow>
+      </a-plane> -->
+
+
+
+    </a-scene>
+  </body>
+</html>
+
+<!--
+
+<a-plane id="ground"
+  position="0 0 -4"
+  rotation="-90 0 0"
+  width="100"
+  height="100"
+  color="#7BC8A4"
+  material="src: #grass; repeat: 10 10"
+  shadow>
+</a-plane>
+
+
+
+-->
